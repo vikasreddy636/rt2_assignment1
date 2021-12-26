@@ -9,6 +9,7 @@ from rt2_assignment1.srv import Position
 import math
 import actionlib
 import actionlib.msg
+import rt2_assignment1.msg
 
 # robot state variables
 position_ = Point()
@@ -133,9 +134,9 @@ def done():
     
 def go_to_point(goal):
     global state_, desired_position_, act_s, success
-    desired_position_.x = goal.target_pose.pose.position.x
-    desired_position_.y = goal.target_pose.pose.position.y
-    des_yaw = goal.target_pose.pose.position.z
+    desired_position_.x = goal.x
+    desired_position_.y = goal.y
+    des_yaw = goal.theta
     change_state(0)
     while True:
     	if act_s.is_preempt_requested():
@@ -163,7 +164,7 @@ def main():
     rospy.init_node('go_to_point')
     pub_ = rospy.Publisher('/cmd_vel', Twist, queue_size=1)
     sub_odom = rospy.Subscriber('/odom', Odometry, clbk_odom)
-    ct_s = actionlib.SimpleActionServer('/go_to_point', RT2_ASSIGNMENT1.msg.go_to_pointAction, go_to_point, auto_start=False)
+    ct_s = actionlib.SimpleActionServer('/go_to_point', rt2_assignment1.msg.go_to_pointAction, go_to_point, auto_start=False)
     ct_s.start()
     rospy.spin()
 
