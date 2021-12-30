@@ -132,6 +132,7 @@ def go_to_point(goal):
     des_yaw = goal.target_pose.pose.position.z
     change_state(0)
     while True:
+        #checking if the client is requested to cancel the goal
         if act_s.is_preempt_requested():
             rospy.loginfo('Goal was preempted')
             twist_msg = Twist()
@@ -157,7 +158,7 @@ def main():
     rospy.init_node('go_to_point')
     pub_ = rospy.Publisher('/cmd_vel', Twist, queue_size=1)
     sub_odom = rospy.Subscriber('/odom', Odometry, clbk_odom)
-    act_s = actionlib.SimpleActionServer('/go_to_point', rt2_assignment1.msg.gotopointAction, execute_cb=go_to_point, auto_start=False)
+    act_s = actionlib.SimpleActionServer('/go_to_point', rt2_assignment1.msg.gotopointAction, go_to_point, auto_start=False)
     act_s.start()
     rospy.spin()
 
