@@ -1,21 +1,25 @@
-import rospy
-import time
-from rt2_assignment1.srv import Command
+#include "ros/ros.h"
+#include "rt2_assignment1/RandomPosition.h"
 
-def main():
-    rospy.init_node('user_interface')
-    ui_client = rospy.ServiceProxy('/user_interface', Command)
-    time.sleep(10)
-    rate = rospy.Rate(20)
-    x = int(input("\nPress 1 to start the robot "))
-    while not rospy.is_shutdown():
-        if (x == 1):
-            ui_client("start")
-            x = int(input("\nPress 0 to stop the robot "))
-        else:
-            print("Please wait, the robot is going to stop when the position will be reached")
-            ui_client("stop")
-            x = int(input("\nPress 1 to start the robot "))
-            
-if __name__ == '__main__':
-    main()
+
+double randMToN(double M, double N)
+{     return M + (rand() / ( RAND_MAX / (N-M) ) ) ; }
+
+
+bool myrandom (rt2_assignment1::RandomPosition::Request &req, rt2_assignment1::RandomPosition::Response &res){
+    res.x = randMToN(req.x_min, req.x_max);
+    res.y = randMToN(req.y_min, req.y_max);
+    res.theta = randMToN(-3.14, 3.14);
+    return true;
+}
+
+
+int main(int argc, char **argv)
+{
+   ros::init(argc, argv, "random_position_server");
+   ros::NodeHandle n;
+   ros::ServiceServer service= n.advertiseService("/position_server", myrandom);
+   ros::spin();
+
+   return 0;
+}
