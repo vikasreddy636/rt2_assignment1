@@ -8,6 +8,7 @@ import math
 import actionlib
 import actionlib.msg
 import rt2_assgnment1.msg
+from std_msgs.msg import String, Float64
 
 # robot state variables
 position_ = Point()
@@ -20,6 +21,7 @@ pub_ = None
 desired_position_= Point()
 desired_position_.z=0
 success = False
+Vel=Twist()
 yaw_precision_ = math.pi / 9  # +/- 20 degree allowed
 yaw_precision_2_ = math.pi / 90  # +/- 2 degree allowed
 dist_precision_ = 0.1
@@ -31,6 +33,11 @@ ub_d = 0.6
 
 #action server
 act_s=None
+
+def clbk_vel(msg):
+    global Vel
+    Vel.linear.x=msg.linear.x
+    Vel.angular.z=msg.angular.z
 
 def clbk_odom(msg):
     global position_
@@ -60,18 +67,18 @@ def normalize_angle(angle):
     return angle
 
 def fix_yaw(des_pos):
-    global yaw_, pub, yaw_precision_2_, state_
+    global yaw_, pub, yaw_precision_2_, state_,Vel
     des_yaw = math.atan2(desired_position_.y - position_.y, desired_position_.x - position_.x)
     err_yaw = normalize_angle(des_yaw - yaw_)
     rospy.loginfo(err_yaw)
     
     twist_msg = Twist()
     if math.fabs(err_yaw) > yaw_precision_2_:
-        twist_msg.angular.z = kp_a*err_yaw
+        twist_msg.angular.z = Vel.angular.z
         if twist_msg.angular.z > ub_a:
-            twist_msg.angular.z = ub_a
+            twist_msg.angular.z = Vel.angular.z
         elif twist_msg.angular.z < lb_a:
-            twist_msg.angular.z = lb_a
+            twist_msg.angular.z = Vel.angular.z
     pub_.publish(twist_msg)
     if math.fabs(err_yaw) <= yaw_precision_2_:
         print ('Yaw error: [%s]' % err_yaw)
@@ -79,7 +86,7 @@ def fix_yaw(des_pos):
 
 
 def go_straight_ahead(des_pos):
-    global yaw_, pub, yaw_precision_, state_
+    global yaw_, pub, yaw_precision_, state_,Vel
     des_yaw = math.atan2(desired_position_.y - position_.y, desired_position_.x - position_.x)
     err_yaw = des_yaw - yaw_
     err_pos = math.sqrt(pow(desired_position_.y - position_.y, 2) + pow(desired_position_.x - position_.x, 2))
@@ -88,11 +95,10 @@ def go_straight_ahead(des_pos):
 
     if err_pos > dist_precision_:
         twist_msg = Twist()
-        twist_msg.linear.x = 0.3
+        twist_msg.linear.x = Vel.linear.x
         if twist_msg.linear.x > ub_d:
-            twist_msg.linear.x = ub_d
-
-        twist_msg.angular.z = kp_a*err_yaw
+            twist_msg.linear.x = Vel.linear.x
+        twist_msg.angular.z = Vel.linear.z*err_yaw
         pub_.publish(twist_msg)
     else: 
         print ('Position error: [%s]' % err_pos)
@@ -103,15 +109,16 @@ def go_straight_ahead(des_pos):
         change_state(0)
 
 def fix_final_yaw(des_yaw):
+    global Vel
     err_yaw = normalize_angle(des_yaw - yaw_)
     rospy.loginfo(err_yaw)
     twist_msg = Twist()
     if math.fabs(err_yaw) > yaw_precision_2_:
-        twist_msg.angular.z = kp_a*err_yaw
+        twist_msg.angular.z = Vel.angular.z
         if twist_msg.angular.z > ub_a:
-            twist_msg.angular.z = ub_a
+            twist_msg.angular.z = Vel.angular.z
         elif twist_msg.angular.z < lb_a:
-            twist_msg.angular.z = lb_a
+            twist_msg.angular.z = Vel.angular.z
     pub_.publish(twist_msg)
     if math.fabs(err_yaw) <= yaw_precision_2_:
         #print ('Yaw error: [%s]' % err_yaw)
