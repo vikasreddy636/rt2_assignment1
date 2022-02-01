@@ -34,6 +34,7 @@ int main(int argc, char **argv)
 	ros::init(argc, argv, "state_machine");
 	ros::NodeHandle n;
 	ros::NodeHandle n1;
+	ros::NodeHandle n2;	
 	ros::NodeHandle n3;	
 	ros::ServiceServer service= n.advertiseService("/user_interface", user_interface);
 	ros::ServiceClient client_rp = n1.serviceClient<rt2_assignment1::RandomPosition>("/position_server");
