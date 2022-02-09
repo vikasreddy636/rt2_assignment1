@@ -1,7 +1,7 @@
 #include "ros/ros.h"
 #include "rt2_assignment1/Command.h"
 #include "rt2_assignment1/RandomPosition.h"
-#include <rt2_assignment1/gotopointAction.h>
+#include <rt2_assignment1/GotopointAction.h>
 #include <actionlib/client/simple_action_client.h>
 #include <actionlib/client/terminal_state.h>
 #include "std_msgs/Bool.h"
@@ -38,7 +38,7 @@ int main(int argc, char **argv)
 	ros::NodeHandle n3;	
 	ros::ServiceServer service= n.advertiseService("/user_interface", user_interface);
 	ros::ServiceClient client_rp = n1.serviceClient<rt2_assignment1::RandomPosition>("/position_server");
-	actionlib::SimpleActionClient<rt2_assignment1::gotopointAction> ac("/gotopoint");
+	actionlib::SimpleActionClient<rt2_assignment1::GotopointAction> ac("/Gotopoint");
 	ros::Publisher pub=n2.advertise<std_msgs::Bool>("/reach", 1000);
     ros::Publisher pub_time=n3.advertise<std_msgs::Float32>("/time", 1000);   
 	rt2_assignment1::RandomPosition rp; 
@@ -58,7 +58,7 @@ int main(int argc, char **argv)
 					if (not_moving)
 						{
 							client_rp.call(rp);
-							rt2_assignment1::gotopointGoal goal;
+							rt2_assignment1::GotopointGoal goal;
 							goal.target_pose.header.frame_id = "base_link";
 							goal.target_pose.header.stamp = ros::Time::now();
 							goal.target_pose.pose.position.x = rp.response.x;
