@@ -1,4 +1,19 @@
 #! /usr/bin/env python -tt
+"""
+.. module:: go_to_point
+:platform: Unix
+:synopsis: Python module for piloting the robot to the target
+.. moduleauthor:: Ginne Vikas Reddy <vikasreddy636@rediffmail.com>
+ROS node for driving a robot to a specific point
+Subscribes to:
+/odom topic where the simulator publishes the robot position
+Publishes to:
+/cmd_vel the desired robot position
+Service :
+/go_to_point to start the robot motion.
+"""
+
+
 
 import rospy
 from geometry_msgs.msg import Twist, Point, Pose
@@ -11,6 +26,9 @@ import rt2_assgnment1.msg
 
 # robot state variables
 position_ = Point()
+"""Point: actual robot position
+"""
+
 pose_=Pose()
 yaw_ = 0
 position_ = 0
@@ -55,6 +73,13 @@ def change_state(state):
 
 
 def normalize_angle(angle):
+    """
+    Function for normalizing the angle between -pi and pi.
+    Args:
+        angle(Float): the input angle
+    Returns:
+        angle(Float): the normalized angle.
+    """
     if(math.fabs(angle) > math.pi):
         angle = angle - (2 * math.pi * angle) / (math.fabs(angle))
     return angle
