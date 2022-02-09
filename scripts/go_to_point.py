@@ -158,7 +158,7 @@ def main():
     rospy.init_node('go_to_point')
     pub_ = rospy.Publisher('/cmd_vel', Twist, queue_size=1)
     sub_odom = rospy.Subscriber('/odom', Odometry, clbk_odom)
-    act_s = actionlib.SimpleActionServer('/go_to_point', rt2_assignment1.msg.gotopointAction, go_to_point, auto_start=False)
+    act_s = actionlib.SimpleActionServer('/go_to_point', rt2_assignment1.msg.GotopointAction, go_to_point, auto_start=False)
     act_s.start()
     rospy.spin()
 
