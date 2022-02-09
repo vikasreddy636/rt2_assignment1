@@ -1,6 +1,31 @@
+#! /usr/bin/env python -tt
+
+## @package rt2_assignment2
+#
+#  \file user_interface.py
+#  \brief This file implements the behaviour that allows the robot to reach a goal.
+#
+#  \author Ginne Vikas Reddy
+#  \version 1.0
+#  \date 09/02/2022
+#  \details
+#  
+#
+#  Services: <BR>
+#    /user_interface
+#
+#
+#  Description: <BR>
+#    This node implements an user interface 
+
 import rospy
 import time
 from rt2_assignment1.srv import Command
+
+## \brief Brief function description
+#
+# This function is the main function
+#
 
 def main():
     rospy.init_node('user_interface')
