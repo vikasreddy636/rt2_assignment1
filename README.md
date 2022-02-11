@@ -22,8 +22,33 @@ The ActionClient and ActionServer communicate via a "ROS Action Protocol", which
 
 
 
+# Excuting the package(individual)
+
+create a workspace in root repositories
+
+‘cd‘
+
+`mkdir "name of the workspace" `
+
+‘cd "name of the package"‘
+
+‘mkdir src‘
+
+Build the package
+
+`catkin_make`
+
+clone the repository 
+
+‘git clone -b action https://github.com/vikasreddy636/rt2_assignment1.git‘
+
+Refresh the workspace using
+
+`rospack profile`
+
 
 The package contains the nodes and the simulation environment for controlling a mobile robot in the Gazebo simulation environment.
+
 To launch the node, please run:
 ```
 roslaunch rt2_assignment1 sim.launch
