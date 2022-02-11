@@ -26,13 +26,13 @@ The ActionClient and ActionServer communicate via a "ROS Action Protocol", which
 
 create a workspace in root repositories
 
-‘cd‘
+`cd`
 
 `mkdir "name of the workspace" `
 
-‘cd "name of the package"‘
+`cd "name of the package"`
 
-‘mkdir src‘
+`mkdir src`
 
 Build the package
 
@@ -40,7 +40,7 @@ Build the package
 
 clone the repository 
 
-‘git clone -b action https://github.com/vikasreddy636/rt2_assignment1.git‘
+`git clone -b action https://github.com/vikasreddy636/rt2_assignment1.git`
 
 Refresh the workspace using
 
