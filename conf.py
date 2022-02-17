@@ -20,7 +20,7 @@ subprocess.call('doxygen Doxyfile.in', shell=True)
 
 
 
-project = 'rt2_assignment2'
+project = 'rt2_assignment1'
 copyright = '2022, Ginne Vikas Reddy'
 author = 'Ginne Vikas Reddy'
 
@@ -82,7 +82,7 @@ intersphinx_mapping = {'https://docs.python.org/': None}
 todo_include_todos = True
 # -- Options for breathe
 breathe_projects = {
-    "rt2_assignment2": "_build/xml/"
+    "rt2_assignment1": "_build/xml/"
 }
-breathe_default_project = "rt2_assignment2"
+breathe_default_project = "rt2_assignment1"
 breathe_default_members = ('members', 'undoc-members')

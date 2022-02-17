@@ -1,4 +1,4 @@
-.. rt2_assignment2 documentation master file, created by
+.. rt2_assignment1 documentation master file, created by
    sphinx-quickstart on Wed Feb  9 17:06:34 2022.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
@@ -15,7 +15,7 @@ Indices
 * :ref:`modindex`
 * :ref:`search`
 
-rt2_assignment2's documentation!
+rt2_assignment1's documentation!
 ********************************
 This is the documentation of the RT2_assignment package!
 User Interface Module
@@ -29,4 +29,4 @@ GoToPoint Module
 Position Service
 ================
 .. doxygenfile:: position_service.cpp
-:project: rt2_assignment2
+:project: rt2_assignment1

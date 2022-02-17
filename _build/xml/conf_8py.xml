@@ -30,7 +30,7 @@
 <codeline lineno="20"><highlight class="normal"></highlight></codeline>
 <codeline lineno="21"><highlight class="normal"></highlight></codeline>
 <codeline lineno="22"><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal">project<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;rt2_assignment2&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal">project<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;rt2_assignment1&apos;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="24"><highlight class="normal">copyright<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;2022,<sp/>Ginne<sp/>Vikas<sp/>Reddy&apos;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="25"><highlight class="normal">author<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;Ginne<sp/>Vikas<sp/>Reddy&apos;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="26"><highlight class="normal"></highlight></codeline>
@@ -92,9 +92,9 @@
 <codeline lineno="82"><highlight class="normal">todo_include_todos<sp/>=<sp/></highlight><highlight class="keyword">True</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="83"><highlight class="normal"></highlight><highlight class="comment">#<sp/>--<sp/>Options<sp/>for<sp/>breathe</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="84"><highlight class="normal">breathe_projects<sp/>=<sp/>{</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;rt2_assignment2&quot;</highlight><highlight class="normal">:<sp/></highlight><highlight class="stringliteral">&quot;_build/xml/&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;rt2_assignment1&quot;</highlight><highlight class="normal">:<sp/></highlight><highlight class="stringliteral">&quot;_build/xml/&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="86"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="87"><highlight class="normal">breathe_default_project<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;rt2_assignment2&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal">breathe_default_project<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;rt2_assignment1&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="88"><highlight class="normal">breathe_default_members<sp/>=<sp/>(</highlight><highlight class="stringliteral">&apos;members&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&apos;undoc-members&apos;</highlight><highlight class="normal">)</highlight></codeline>
     </programlisting>
     <location file="conf.py"/>

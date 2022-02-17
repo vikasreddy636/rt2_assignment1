@@ -21,7 +21,7 @@
         <definition>string conf.project</definition>
         <argsstring></argsstring>
         <name>project</name>
-        <initializer>=  &apos;rt2_assignment2&apos;</initializer>
+        <initializer>=  &apos;rt2_assignment1&apos;</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -231,7 +231,7 @@
         <argsstring></argsstring>
         <name>breathe_projects</name>
         <initializer>=  {
-    &quot;rt2_assignment2&quot;: &quot;_build/xml/&quot;
+    &quot;rt2_assignment1&quot;: &quot;_build/xml/&quot;
 }</initializer>
         <briefdescription>
         </briefdescription>
@@ -246,7 +246,7 @@
         <definition>string conf.breathe_default_project</definition>
         <argsstring></argsstring>
         <name>breathe_default_project</name>
-        <initializer>=  &quot;rt2_assignment2&quot;</initializer>
+        <initializer>=  &quot;rt2_assignment1&quot;</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>

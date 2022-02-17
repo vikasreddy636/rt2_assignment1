@@ -1,4 +1,4 @@
-/** @ package rt2_assignment2
+/** @ package rt2_assignment1
 * 
 *  \file position_service.cpp
 *  \brief This file implements the random number server
