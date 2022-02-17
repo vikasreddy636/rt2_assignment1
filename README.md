@@ -1,8 +1,9 @@
-# First Assignment of the Research Track 2 course (Robotics Engineering / JEMARO, Unige)
+## Assignment of the Research Track 2 course 
+ GINNE VIKAS REDDY (matricola 5061211)
 
-The package contains the nodes and the simulation environment for controlling a mobile robot in the Gazebo simulation environment.
-To launch the node, please run:
-```
-roslaunch rt2_assignment1 sim.launch
-```
+use the link to access the documentation
+
+https://vikasreddy636.github.io/rt2_assignment1/
+
+
 
