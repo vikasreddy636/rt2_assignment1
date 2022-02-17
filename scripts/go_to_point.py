@@ -1,6 +1,6 @@
 #! /usr/bin/env python -tt
 
-## @package rt2_assignment2
+## @package rt2_assignment1
 #
 #  \file go_to_point.py
 #  \brief This file implements the behaviour that allows the robot to reach a goal.

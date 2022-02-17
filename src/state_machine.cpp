@@ -1,4 +1,4 @@
-/** @ package rt2_assignment2
+/** @ package rt2_assignment1
 * 
 *  \file state_machine.cpp
 *  \brief This file implements the finite state machine behaviour
