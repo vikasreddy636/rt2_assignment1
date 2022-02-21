@@ -17,15 +17,25 @@ Indices
 
 rt2_assignment1's documentation!
 ********************************
+
+
 This is the documentation of the RT2_assignment package!
+
+
 User Interface Module
 =====================
+
+
 .. automodule:: scripts.user_interface
 :members:
+
+
 GoToPoint Module
 =====================
 .. automodule:: scripts.go_to_point
 :members:
+
+
 Position Service
 ================
 .. doxygenfile:: position_service.cpp
